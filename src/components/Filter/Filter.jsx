@@ -22,7 +22,7 @@ export const FilterContacts = ({ value, onChange }) => {
   );
 };
 
-FilterContacts.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
+// FilterContacts.propTypes = {
+//   value: PropTypes.string.isRequired,
+//   onChange: PropTypes.func.isRequired,
+// };

@@ -13,8 +13,8 @@ export const ContactEl = ({name, number, onDelete}) => {
   )
 }
 
-ContactEl.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.string.isRequired,
-  onDelete: PropTypes.func.isRequired,
-};
+// ContactEl.propTypes = {
+//   name: PropTypes.string.isRequired,
+//   number: PropTypes.string.isRequired,
+//   onDelete: PropTypes.func.isRequired,
+// };

@@ -12,9 +12,8 @@ import { persisteContactsReducer } from './contactsSlice';
 
 export const store = configureStore({
   reducer: {
-    contacts: persisteContactsReducer,
+    phoneBook: persisteContactsReducer,
   },
-
   middleware(getDefaultMiddleware) {
     return getDefaultMiddleware({
       serializableCheck: {
@@ -25,5 +24,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-
