@@ -1,35 +1,45 @@
 import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
-// import PropTypes from 'prop-types';
 
 import { Form, FormInput, FormButton } from './ContactForm.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redux/contactsSlice';
+import { getContacts } from 'redux/selectors';
 
-  export const ContactForm = ({ onSubmit }) => {
+export const ContactForm = () => {
+  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
+  const addContacts = contacts => dispatch(addContact(contacts));
+
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
   const nameId = nanoid();
   const numberId = nanoid();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    onSubmit({ name, number });
-    setName('');
-    setNumber('');
-  };
-
   const handleChange = e => {
     const { name, value } = e.currentTarget;
     switch (name) {
-      case "name":
+      case 'name':
         setName(value);
         break;
-    case "number":
-         setNumber(value);
+      case 'number':
+        setNumber(value);
         break;
       default:
         break;
-    } 
+    }
+  };
+
+  const isContactRecorded = contacts.find(contact => contact.name === name);
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    isContactRecorded
+      ? alert(`${name} is alreadi in contacts`)
+      : dispatch(addContact({ name, number }));
+    setName('');
+    setNumber('');
   };
 
   return (
@@ -64,7 +74,3 @@ import { Form, FormInput, FormButton } from './ContactForm.styled';
     </Form>
   );
 };
-
-// ContactForm.propTypes = {
-//   onSubmit: PropTypes.func.isRequired,
-// };

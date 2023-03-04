@@ -1,11 +1,19 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-// import PropTypes from 'prop-types';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFilter } from 'redux/selectors';
 import { FilterInput, FilterContainer } from './Filter.styled';
+import { changeFilter } from 'redux/contactsSlice';
 
-export const FilterContacts = ({ value, onChange }) => {
+export const FilterContacts = () => {
+  const filter = useSelector(getFilter);
+  const dispatch = useDispatch();
+
   const filterId = nanoid();
 
+  const changePageFilter = e => {
+    dispatch(changeFilter(e.currentTarget.value));
+  };
   return (
     <FilterContainer>
       <label htmlFor={filterId}>
@@ -14,15 +22,10 @@ export const FilterContacts = ({ value, onChange }) => {
           id={filterId}
           type="text"
           name="filter"
-          value={value}
-          onChange={onChange}
+          value={filter}
+          onChange={changePageFilter}
         />
       </label>
     </FilterContainer>
   );
 };
-
-// FilterContacts.propTypes = {
-//   value: PropTypes.string.isRequired,
-//   onChange: PropTypes.func.isRequired,
-// };
