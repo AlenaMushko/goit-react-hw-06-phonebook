@@ -1,6 +1,6 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { FilterInput, FilterContainer } from './Filter.styled';
 
 export const FilterContacts = ({ value, onChange }) => {

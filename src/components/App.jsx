@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts } from 'redux/selectors';
 import { addContact } from 'redux/contactsSlice';
@@ -20,10 +20,10 @@ export const App = () => {
   const [filter, setFilter] = useState('');
 
   const visibleContacts = () => {
-    // const normolizeFilter = filter.toLowerCase();
-    // return contacts.filter(contact =>
-    //   contact.name.toLowerCase().includes(normolizeFilter)
-    // );
+    const normolizeFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normolizeFilter)
+    );
   };
   const changeFilter = e => {
     setFilter(e.currentTarget.value);
@@ -44,7 +44,7 @@ export const App = () => {
       )}
       {contacts.length > 0 && (
         <ContactList
-          // contacts={visibleContacts()}
+          contacts={visibleContacts()}
           onDelete={deliteContact}
         />
       )}

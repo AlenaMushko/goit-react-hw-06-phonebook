@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { getContacts } from 'redux/selectors';
 
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { ContactEl } from 'components/ContactEl';
 import {List, Item } from './ContactList.styled'
 
