@@ -36,7 +36,7 @@ export const ContactForm = () => {
     e.preventDefault();
     isContactRecorded
       ? alert(`${name} is alreadi in contacts`)
-      : dispatch(addContact({ name, number }));
+      : dispatch(addContact({id: nanoid(), name, number }));
     setName('');
     setNumber('');
   };
