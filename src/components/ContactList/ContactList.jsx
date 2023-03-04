@@ -11,9 +11,7 @@ export const ContactList = () => {
 
   const visibleContacts = () => {
     const normolizeFilter = filter.toLowerCase();
-    return contacts?.filter(contact =>
-      contact.name.toLowerCase().includes(normolizeFilter)
-    );
+    return contacts.filter(contact => contact.name.toLowerCase().includes(normolizeFilter));
   };
 
   const visibleContactsOnPage = visibleContacts();
