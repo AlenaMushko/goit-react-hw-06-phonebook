@@ -10,7 +10,7 @@ export const ContactList = () => {
   const dispatch = useDispatch();
 
   const visibleContacts = () => {
-    const normolizeFilter = filter.toLowerCase();
+    const normolizeFilter = filter;
     return contacts.filter(contact =>
       contact.name.toLowerCase().includes(normolizeFilter)
     );
