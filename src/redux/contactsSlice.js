@@ -31,7 +31,6 @@ const persistConfig = {
   blacklist: ['filter'],
 };
 
-// Action creators are generated for each case reducer function
 export const { addContact, removeContact, changeFilter } =
   contactsSlice.actions;
 
